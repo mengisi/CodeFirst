@@ -106,7 +106,6 @@ C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\bin\Microsoft.Owin.Security.OAu
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csprojResolveAssemblyReference.cache
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.adduserproperties.resources
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csproj.GenerateResource.Cache
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.dll

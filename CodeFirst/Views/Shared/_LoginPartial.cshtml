@@ -6,6 +6,14 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
+        
+        @if (this.User.IsInRole("Admin"))
+        {
+            <li>@Html.ActionLink("Nouvelles", "news")</li>
+        }
+
+
+
         <li>
             @Html.ActionLink("Bonjour " + User.Identity.Name + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
@@ -16,6 +24,6 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">        
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Log in", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
