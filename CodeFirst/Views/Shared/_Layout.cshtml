@@ -6,6 +6,14 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script>
+    tinymce.init({
+        selector: '#mytextarea'
+    });
+    </script>
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
