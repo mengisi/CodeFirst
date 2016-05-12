@@ -35,10 +35,6 @@ namespace CodeFirst.Models
             return new ApplicationDbContext();
         }
 
-       // public System.Data.Entity.DbSet<CodeFirst.Models.ApplicationUser> ApplicationUsers { get; set; }
-
-
-
-
+        public virtual DbSet<Annoucement> Annoucements { get; set; }
     }
 }

@@ -168,8 +168,13 @@
     <Compile Include="Migrations\201605121536316_add user properties.Designer.cs">
       <DependentUpon>201605121536316_add user properties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605122355074_add anoncouement.cs" />
+    <Compile Include="Migrations\201605122355074_add anoncouement.Designer.cs">
+      <DependentUpon>201605122355074_add anoncouement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Annoucement.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -240,6 +245,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605121536316_add user properties.resx">
       <DependentUpon>201605121536316_add user properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605122355074_add anoncouement.resx">
+      <DependentUpon>201605122355074_add anoncouement.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
