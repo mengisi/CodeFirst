@@ -9,8 +9,27 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container"> 
+        <div class="container">
+
             <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Nouvelles", "news")</li>
+                        if (this.User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Ajouter Nouvelles", "news")</li>
+                            <li>@Html.ActionLink("Gérer Employées", "news")</li>
+                            <li>@Html.ActionLink("Gérer Commandes", "news")</li>
+                        }
+
+                        if (this.User.IsInRole("Employee"))
+                        {
+                            <li>@Html.ActionLink("Editer mon profiles", "news")</li>
+                            <li>@Html.ActionLink("Faire Commande", "news")</li>
+                        }
+                    }
+                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
