@@ -111,5 +111,4 @@ C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csproj.Gene
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.dll
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.pdb
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.addanoncouement.resources
-C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csprojResolveAssemblyReference.cache
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.cancelnonnullofpropertyofannoucement.resources
