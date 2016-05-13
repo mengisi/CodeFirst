@@ -20,28 +20,27 @@ namespace CodeFirst.Controllers
         // GET: Orders
         public ActionResult Index()
         {
-           /* List<OrderWithUserViewModel> owu = (from order in db.Orders
-                                                join user in db.Users
-                                                on order.ApplicationUser.Id equals user.Id
-                                                select new OrderWithUserViewModel()
-                                                {
-                                                    Id = order.Id,
-                                                    UserId = user.Id,
-                                                    FirstName = user.FirstName,
-                                                    LastName = user.LastName,
-                                                    Email = user.Email,
-                                                    SubmitTime = order.SubmitTime,
-                                                    ApproveTime = order.ApproveTime,
-                                                    Description = order.Description,
-                                                    IsApproved = order.IsApproved,
-                                                    ProductName = order.ProductName,
-                                                    Quantity = order.Quantity,
-                                                    Price = order.Price,
-                                                    Total = order.Total,
-                                                }).ToList();*/
-            //List<Order> orders = db.Orders.ToList();
-             return View(db.Orders.ToList());
-     
+            IEnumerable<OrderWithUserViewModel> allOrders  = (from order in db.Orders
+                         join user in db.Users
+                         on order.ApplicationUser.Id equals user.Id
+                         select new OrderWithUserViewModel()
+                         {
+                             Id = order.Id,
+                             UserId = user.Id,
+                             FirstName = user.FirstName,
+                             LastName = user.LastName,
+                             Email = user.Email,
+                             SubmitTime = order.SubmitTime,
+                             ApproveTime = order.ApproveTime,
+                             IsApproved = order.IsApproved,
+                             ProductName = order.ProductName,
+                             Quantity = order.Quantity,
+                             Price = order.Price,
+                             Total = order.Total,
+                         }).ToList();
+
+            return View(allOrders);
+
         }
 
         // GET: Orders/Details/5
@@ -51,12 +50,12 @@ namespace CodeFirst.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-           // Order order = db.Orders.Find(id);
-          //  if (order == null)
-           // {
-          //      return HttpNotFound();
-          //  }
-           // return View(order);
+            // Order order = db.Orders.Find(id);
+            //  if (order == null)
+            // {
+            //      return HttpNotFound();
+            //  }
+            // return View(order);
             return View();
         }
 
@@ -80,7 +79,7 @@ namespace CodeFirst.Controllers
                 order.ApplicationUser = userManager.FindById(User.Identity.GetUserId());
 
                 order.SubmitTime = DateTime.Now;
-               // db.Orders.Add(order);
+                 db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -95,11 +94,11 @@ namespace CodeFirst.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-         //   Order order = db.Orders.Find(id);
-          //  if (order == null)
-          //  {
-         //       return HttpNotFound();
-         //   }
+            //   Order order = db.Orders.Find(id);
+            //  if (order == null)
+            //  {
+            //       return HttpNotFound();
+            //   }
             return View();
             // return View(order);
         }
@@ -127,11 +126,11 @@ namespace CodeFirst.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-          // Order order = db.Orders.Find(id);
-          //  if (order == null)
-         //   {
-         //       return HttpNotFound();
-         //   }
+            // Order order = db.Orders.Find(id);
+            //  if (order == null)
+            //   {
+            //       return HttpNotFound();
+            //   }
             return View();
             // return View(order);
         }
@@ -141,8 +140,8 @@ namespace CodeFirst.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-          //  Order order = db.Orders.Find(id);
-          //  db.Orders.Remove(order);
+            //  Order order = db.Orders.Find(id);
+            //  db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

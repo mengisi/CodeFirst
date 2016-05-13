@@ -1,5 +1,4 @@
-﻿@using CodeFirst.Models.ViewModels
-@model IEnumerable<CodeFirst.Models.Order>
+﻿@model IEnumerable<CodeFirst.Models.ViewModels.OrderWithUserViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -17,22 +16,19 @@
             Employee name
         </th>
         <th>
-            Employee email
-        </th>
-        <th>
             Order description
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductName)
+            Product
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Quantity)
+            Quantity
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            Price
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Total)
+            Total
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SubmitTime)
@@ -45,16 +41,13 @@
 
     @foreach (var item in Model)
     {
+        string fullName = item.FirstName + " " + item.LastName;
         <tr>
             <td>
-                sdfad
-         
+                @fullName
             </td>
             <td>
-              jkhj
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
