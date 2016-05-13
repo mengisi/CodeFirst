@@ -168,61 +168,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605121536316_add user properties.cs" />
-    <Compile Include="Migrations\201605121536316_add user properties.Designer.cs">
-      <DependentUpon>201605121536316_add user properties.cs</DependentUpon>
+    <Compile Include="Migrations\201605132245547_a1.cs" />
+    <Compile Include="Migrations\201605132245547_a1.Designer.cs">
+      <DependentUpon>201605132245547_a1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605122355074_add anoncouement.cs" />
-    <Compile Include="Migrations\201605122355074_add anoncouement.Designer.cs">
-      <DependentUpon>201605122355074_add anoncouement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605130158484_cancel non-null of property of annoucement.cs" />
-    <Compile Include="Migrations\201605130158484_cancel non-null of property of annoucement.Designer.cs">
-      <DependentUpon>201605130158484_cancel non-null of property of annoucement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605131402240_add claim to identity.cs" />
-    <Compile Include="Migrations\201605131402240_add claim to identity.Designer.cs">
-      <DependentUpon>201605131402240_add claim to identity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605131404584_modify email.cs" />
-    <Compile Include="Migrations\201605131404584_modify email.Designer.cs">
-      <DependentUpon>201605131404584_modify email.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605131707078_add order.cs" />
-    <Compile Include="Migrations\201605131707078_add order.Designer.cs">
-      <DependentUpon>201605131707078_add order.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605131728574_change type of quantity.cs" />
-    <Compile Include="Migrations\201605131728574_change type of quantity.Designer.cs">
-      <DependentUpon>201605131728574_change type of quantity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605131801142_change property name.cs" />
-    <Compile Include="Migrations\201605131801142_change property name.Designer.cs">
-      <DependentUpon>201605131801142_change property name.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605131810036_change approvedtime nullable.cs" />
-    <Compile Include="Migrations\201605131810036_change approvedtime nullable.Designer.cs">
-      <DependentUpon>201605131810036_change approvedtime nullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605131855212_remove userId %28because we have already user%29.cs" />
-    <Compile Include="Migrations\201605131855212_remove userId %28because we have already user%29.Designer.cs">
-      <DependentUpon>201605131855212_remove userId %28because we have already user%29.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605131932252_orerViewModel.cs" />
-    <Compile Include="Migrations\201605131932252_orerViewModel.Designer.cs">
-      <DependentUpon>201605131932252_orerViewModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605132147019_addPropertiesForTestReverse.cs" />
-    <Compile Include="Migrations\201605132147019_addPropertiesForTestReverse.Designer.cs">
-      <DependentUpon>201605132147019_addPropertiesForTestReverse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605132150223_text2.cs" />
-    <Compile Include="Migrations\201605132150223_text2.Designer.cs">
-      <DependentUpon>201605132150223_text2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605132153483_text3.cs" />
-    <Compile Include="Migrations\201605132153483_text3.Designer.cs">
-      <DependentUpon>201605132153483_text3.cs</DependentUpon>
+    <Compile Include="Migrations\201605132248095_a2.cs" />
+    <Compile Include="Migrations\201605132248095_a2.Designer.cs">
+      <DependentUpon>201605132248095_a2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -312,51 +264,15 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605121536316_add user properties.resx">
-      <DependentUpon>201605121536316_add user properties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605122355074_add anoncouement.resx">
-      <DependentUpon>201605122355074_add anoncouement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605130158484_cancel non-null of property of annoucement.resx">
-      <DependentUpon>201605130158484_cancel non-null of property of annoucement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605131402240_add claim to identity.resx">
-      <DependentUpon>201605131402240_add claim to identity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605131404584_modify email.resx">
-      <DependentUpon>201605131404584_modify email.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605131707078_add order.resx">
-      <DependentUpon>201605131707078_add order.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605131728574_change type of quantity.resx">
-      <DependentUpon>201605131728574_change type of quantity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605131801142_change property name.resx">
-      <DependentUpon>201605131801142_change property name.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605131810036_change approvedtime nullable.resx">
-      <DependentUpon>201605131810036_change approvedtime nullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605131855212_remove userId %28because we have already user%29.resx">
-      <DependentUpon>201605131855212_remove userId %28because we have already user%29.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605131932252_orerViewModel.resx">
-      <DependentUpon>201605131932252_orerViewModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605132147019_addPropertiesForTestReverse.resx">
-      <DependentUpon>201605132147019_addPropertiesForTestReverse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605132150223_text2.resx">
-      <DependentUpon>201605132150223_text2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605132153483_text3.resx">
-      <DependentUpon>201605132153483_text3.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <EmbeddedResource Include="Migrations\201605132245547_a1.resx">
+      <DependentUpon>201605132245547_a1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605132248095_a2.resx">
+      <DependentUpon>201605132248095_a2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

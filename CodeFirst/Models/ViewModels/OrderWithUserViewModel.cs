@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CodeFirst.Models.ViewModels
 {
-    public class OrderWithUserViewModel:Order
+    public class OrderWithUserViewModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

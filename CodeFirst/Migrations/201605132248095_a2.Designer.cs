@@ -7,13 +7,13 @@ namespace CodeFirst.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class removeuserIdbecausewehavealreadyuser : IMigrationMetadata
+    public sealed partial class a2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(removeuserIdbecausewehavealreadyuser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(a2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605131855212_remove userId (because we have already user)"; }
+            get { return "201605132248095_a2"; }
         }
         
         string IMigrationMetadata.Source

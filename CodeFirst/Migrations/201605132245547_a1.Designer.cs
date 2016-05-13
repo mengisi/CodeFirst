@@ -7,13 +7,13 @@ namespace CodeFirst.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class adduserproperties : IMigrationMetadata
+    public sealed partial class a1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(adduserproperties));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(a1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605121536316_add user properties"; }
+            get { return "201605132245547_a1"; }
         }
         
         string IMigrationMetadata.Source

@@ -39,8 +39,9 @@ namespace CodeFirst.Controllers
                                                     Price = order.Price,
                                                     Total = order.Total,
                                                 }).ToList();*/
-
-            return View(db.Orders.ToList());
+            //List<Order> orders = db.Orders.ToList();
+             return View(db.Orders.ToList());
+     
         }
 
         // GET: Orders/Details/5
@@ -50,12 +51,13 @@ namespace CodeFirst.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
-            return View(order);
+           // Order order = db.Orders.Find(id);
+          //  if (order == null)
+           // {
+          //      return HttpNotFound();
+          //  }
+           // return View(order);
+            return View();
         }
 
         // GET: Orders/Create
@@ -78,7 +80,7 @@ namespace CodeFirst.Controllers
                 order.ApplicationUser = userManager.FindById(User.Identity.GetUserId());
 
                 order.SubmitTime = DateTime.Now;
-                db.Orders.Add(order);
+               // db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -93,12 +95,13 @@ namespace CodeFirst.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
-            return View(order);
+         //   Order order = db.Orders.Find(id);
+          //  if (order == null)
+          //  {
+         //       return HttpNotFound();
+         //   }
+            return View();
+            // return View(order);
         }
 
         // POST: Orders/Edit/5
@@ -124,12 +127,13 @@ namespace CodeFirst.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
-            return View(order);
+          // Order order = db.Orders.Find(id);
+          //  if (order == null)
+         //   {
+         //       return HttpNotFound();
+         //   }
+            return View();
+            // return View(order);
         }
 
         // POST: Orders/Delete/5
@@ -137,8 +141,8 @@ namespace CodeFirst.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
+          //  Order order = db.Orders.Find(id);
+          //  db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

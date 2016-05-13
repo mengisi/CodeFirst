@@ -3,14 +3,17 @@ namespace CodeFirst.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addclaimtoidentity : DbMigration
+    public partial class a1 : DbMigration
     {
         public override void Up()
         {
+      
+            
         }
         
         public override void Down()
         {
+   
         }
     }
 }
