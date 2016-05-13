@@ -14,6 +14,10 @@ namespace CodeFirst.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+            // 注意此处添加的property不能为null，否则出错（任何页面都能调用该Identity）
+            userIdentity.AddClaim(new Claim("FirstName", this.FirstName));
+            userIdentity.AddClaim(new Claim("LastName", this.LastName));
+
             return userIdentity;
         }
 
