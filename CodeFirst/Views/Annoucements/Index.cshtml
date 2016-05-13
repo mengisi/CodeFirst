@@ -41,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.Visits)
             </td>
             <td>
-                @if (User.IsInRole("Admin"))
+                @if (User.IsInRole("admin"))
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id })
                     <text>|</text>
