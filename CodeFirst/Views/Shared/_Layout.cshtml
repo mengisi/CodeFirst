@@ -23,10 +23,10 @@
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Nouvelles", "news")</li>
+                        <li>@Html.ActionLink("Nouvelles", "Index", "Annoucements")</li>
                         if (this.User.IsInRole("Admin"))
                         {
-                            <li>@Html.ActionLink("Ajouter Nouvelles", "news")</li>
+                            <li>@Html.ActionLink("Ajouter Nouvelles", "Create", "Annoucements")</li>
                             <li>@Html.ActionLink("Gérer Employées", "news")</li>
                             <li>@Html.ActionLink("Gérer Commandes", "news")</li>
                         }

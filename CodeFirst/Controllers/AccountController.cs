@@ -61,7 +61,7 @@ namespace CodeFirst.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
-                    return RedirectToAction("LandingPage", "Home");
+                    return RedirectToAction("Index", "Annoucements");
                 }
                 else
                 {
