@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,9 +10,9 @@
 
     <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
     <script>
-    tinymce.init({
-        selector: '#mytextarea'
-    });
+        tinymce.init({
+            selector: '#mytextarea'
+        });
     </script>
 
 </head>
@@ -33,7 +34,7 @@
 
                         if (this.User.IsInRole("employee"))
                         {
-                            <li>@Html.ActionLink("Editer mon profiles", "news")</li>
+                            <li>@Html.ActionLink("Mange profile", "Details", "ApplicationUsers", new { id = User.Identity.GetUserId() }, null)</li>
                             <li>@Html.ActionLink("Faire Commande", "news")</li>
                         }
                     }

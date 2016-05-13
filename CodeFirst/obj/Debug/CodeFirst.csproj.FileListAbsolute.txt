@@ -107,10 +107,10 @@ C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\bin\Microsoft.Owin.Security.Goo
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.adduserproperties.resources
-C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csproj.GenerateResource.Cache
-C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.dll
-C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.pdb
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.addanoncouement.resources
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.cancelnonnullofpropertyofannoucement.resources
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.addclaimtoidentity.resources
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.modifyemail.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csproj.GenerateResource.Cache
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.dll
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.pdb
