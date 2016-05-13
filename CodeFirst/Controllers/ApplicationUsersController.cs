@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using CodeFirst.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using CodeFirst.Models.ViewModels;
 
 namespace CodeFirst.Controllers
 {
@@ -50,15 +51,22 @@ namespace CodeFirst.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FirstName,LastName,Adress,Email,PhoneNumber")] ApplicationUser applicationUser)
+        public ActionResult Create([Bind(Include = "FirstName,LastName,Adress,Email,PhoneNumber")] CreateEmployeeViewModel newEmployee)
         {
+            ApplicationUser applicationUser = new ApplicationUser();
+
             if (ModelState.IsValid)
             {
                 UserStore<ApplicationUser> userStore = new UserStore<ApplicationUser>(db);
                 UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(userStore);
 
-                // 二者相同，因为登录时，自带的模板中有个方法FindAsync将email当作username
-                applicationUser.UserName = applicationUser.Email;
+
+                applicationUser.FirstName = newEmployee.FirstName;
+                applicationUser.LastName = newEmployee.LastName;
+                applicationUser.Email = newEmployee.Email;
+                applicationUser.Adress = newEmployee.Adress;
+                applicationUser.PhoneNumber = newEmployee.PhoneNumber;
+                applicationUser.UserName = newEmployee.Email; // 二者相同，因为登录时，自带的模板中有个方法FindAsync将email当作username
                 applicationUser.PasswordHash = new PasswordHasher().HashPassword("123456");
                 applicationUser.SecurityStamp = Guid.NewGuid().ToString();
                 applicationUser.EmailConfirmed = true;
