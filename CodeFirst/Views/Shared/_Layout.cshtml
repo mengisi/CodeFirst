@@ -27,15 +27,15 @@
                         <li>@Html.ActionLink("Nouvelles", "Index", "Annoucements")</li>
                         if (this.User.IsInRole("admin"))
                         {
-                            <li>@Html.ActionLink("Ajouter Nouvelles", "Create", "Annoucements")</li>
-                            <li>@Html.ActionLink("Gérer Employées", "Index", "ApplicationUsers")</li>
-                            <li>@Html.ActionLink("Gérer Commandes", "news")</li>
+                            <li>@Html.ActionLink("Add news", "Create", "Annoucements")</li>
+                            <li>@Html.ActionLink("Manage employees", "Index", "ApplicationUsers")</li>
+                            <li>@Html.ActionLink("Manage orders", "news")</li>
                         }
 
                         if (this.User.IsInRole("employee"))
                         {
                             <li>@Html.ActionLink("Mange profile", "Details", "ApplicationUsers", new { id = User.Identity.GetUserId() }, null)</li>
-                            <li>@Html.ActionLink("Faire Commande", "news")</li>
+                            <li>@Html.ActionLink("Manage orders", "Index", "Orders")</li>
                         }
                     }
                 </ul>

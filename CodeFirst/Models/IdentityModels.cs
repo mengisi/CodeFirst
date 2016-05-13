@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace CodeFirst.Models
 {
@@ -25,6 +26,8 @@ namespace CodeFirst.Models
         public string LastName { get; set; }
         public string Adress { get; set; }
 
+        public virtual ICollection<Order> Orders { get; set; }
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -40,5 +43,7 @@ namespace CodeFirst.Models
         }
 
         public virtual DbSet<Annoucement> Annoucements { get; set; }
+
+        public virtual DbSet<Order> Orders { get; set; }
     }
 }

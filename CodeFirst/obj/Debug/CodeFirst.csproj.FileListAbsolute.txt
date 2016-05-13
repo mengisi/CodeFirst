@@ -114,3 +114,13 @@ C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csproj.GenerateResource.Cache
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.dll
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.pdb
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.addorder.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.changetypeofquantity.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.changepropertyname.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.changeapprovedtimenullable.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.removeuserIdbecausewehavealreadyuser.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.orerViewModel.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csprojResolveAssemblyReference.cache
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.addPropertiesForTestReverse.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.text2.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.text3.resources
