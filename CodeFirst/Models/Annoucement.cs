@@ -9,11 +9,16 @@ namespace CodeFirst.Models
     public class Annoucement
     {
         public int Id { get; set; }
+
+        [Required]
         public string Title { get; set; }
+
+        [Required]
         [DataType(DataType.MultilineText)]
         public string Text { get; set; }
+
         public DateTime CreateTime { get; set; }
-        public DateTime Updatetime { get; set; }
-        public int Visits { get; set; }
+        public DateTime? Updatetime { get; set; }
+        public int? Visits { get; set; }
     }
 }

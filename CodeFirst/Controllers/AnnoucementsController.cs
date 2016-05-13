@@ -36,6 +36,7 @@ namespace CodeFirst.Controllers
         }
 
         // GET: Annoucements/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -45,11 +46,13 @@ namespace CodeFirst.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ValidateInput(false)]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Text,CreateTime,Updatetime,Visits")] Annoucement annoucement)
+        public ActionResult Create([Bind(Include = "Id,Title,Text")] Annoucement annoucement)
         {
             if (ModelState.IsValid)
             {
+                annoucement.CreateTime = DateTime.Now;
                 db.Annoucements.Add(annoucement);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -59,6 +62,7 @@ namespace CodeFirst.Controllers
         }
 
         // GET: Annoucements/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,11 +81,13 @@ namespace CodeFirst.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ValidateInput(false)]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Text,CreateTime,Updatetime,Visits")] Annoucement annoucement)
+        public ActionResult Edit([Bind(Include = "Id,Title,Text,CreateTime")] Annoucement annoucement)
         {
             if (ModelState.IsValid)
             {
+                annoucement.Updatetime = DateTime.Now;
                 db.Entry(annoucement).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -90,6 +96,7 @@ namespace CodeFirst.Controllers
         }
 
         // GET: Annoucements/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,6 +113,7 @@ namespace CodeFirst.Controllers
 
         // POST: Annoucements/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
