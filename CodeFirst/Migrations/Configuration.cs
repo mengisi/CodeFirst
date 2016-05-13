@@ -20,9 +20,9 @@ namespace CodeFirst.Migrations
             // Add roles
             IdentityRole[] roles = new IdentityRole[] 
                 {
-                    new IdentityRole{Name="Employee"},
-                    new IdentityRole{Name="Admin"},
-                    new IdentityRole{Name="Boss"}
+                    new IdentityRole{Name="employee"},
+                    new IdentityRole{Name="admin"},
+                    new IdentityRole{Name="boss"}
                 };
             context.Roles.AddOrUpdate(role => role.Name, roles);
             context.SaveChanges();  // 先保存在数据库中，以便下面的代码能在数据库中找到相应的role
@@ -36,31 +36,31 @@ namespace CodeFirst.Migrations
                 {
                     // In ASP.NET template, FindAsync() sets the USERNAME to the email 
                     // So here, UserName == Email
-                    UserName = "Employee@Employee.com",
+                    UserName = "employee@Employee.com",
                     FirstName = "Robert",
                     LastName = "Lablanc",
-                    Email = "Employee@Employee.com",
+                    Email = "employee1@employee.com",
                     EmailConfirmed = true,
-                    PasswordHash = new PasswordHasher().HashPassword("Employee"),
+                    PasswordHash = new PasswordHasher().HashPassword("123456"),
                     SecurityStamp = Guid.NewGuid().ToString()
                 };
             context.Users.AddOrUpdate(user => user.Email, employee);  // 根据email来寻找user，这样做的话，email就不允许变化了
             context.SaveChanges();
-            userManager.AddToRole(employee.Id, "Employee");
+            userManager.AddToRole(employee.Id, "employee");
             
             ApplicationUser Admin = new ApplicationUser
             {
-                UserName = "Admin@Admin.com",
+                UserName = "admin@admin.com",
                 FirstName = "Philippe",
                 LastName = "Petellier",
-                Email = "Admin@Admin.com",
+                Email = "admin@admin.com",
                 EmailConfirmed = true,
-                PasswordHash = new PasswordHasher().HashPassword("Admin"),
+                PasswordHash = new PasswordHasher().HashPassword("123456"),
                 SecurityStamp = Guid.NewGuid().ToString()
             };
             context.Users.AddOrUpdate(user => user.Email, Admin);
             context.SaveChanges();
-            userManager.AddToRole(Admin.Id, "Admin");
+            userManager.AddToRole(Admin.Id, "admin");
         }
     }
 }

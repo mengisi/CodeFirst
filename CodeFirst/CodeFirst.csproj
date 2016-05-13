@@ -180,6 +180,14 @@
     <Compile Include="Migrations\201605130158484_cancel non-null of property of annoucement.Designer.cs">
       <DependentUpon>201605130158484_cancel non-null of property of annoucement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605131402240_add claim to identity.cs" />
+    <Compile Include="Migrations\201605131402240_add claim to identity.Designer.cs">
+      <DependentUpon>201605131402240_add claim to identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605131404584_modify email.cs" />
+    <Compile Include="Migrations\201605131404584_modify email.Designer.cs">
+      <DependentUpon>201605131404584_modify email.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Annoucement.cs" />
@@ -268,6 +276,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605130158484_cancel non-null of property of annoucement.resx">
       <DependentUpon>201605130158484_cancel non-null of property of annoucement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605131402240_add claim to identity.resx">
+      <DependentUpon>201605131402240_add claim to identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605131404584_modify email.resx">
+      <DependentUpon>201605131404584_modify email.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

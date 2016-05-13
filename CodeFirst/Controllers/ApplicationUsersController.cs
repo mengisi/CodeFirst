@@ -20,7 +20,7 @@ namespace CodeFirst.Controllers
         public ActionResult Index()
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
-            var role = roleManager.FindByName("Employee").Users.First();
+            var role = roleManager.FindByName("employee").Users.First();
             return View(db.Users.Where(u => u.Roles.Select(r => r.RoleId).Contains(role.RoleId)).ToList());
         }
 
@@ -50,12 +50,21 @@ namespace CodeFirst.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Adress,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] ApplicationUser applicationUser)
+        public ActionResult Create([Bind(Include = "FirstName,LastName,Adress,Email,PhoneNumber")] ApplicationUser applicationUser)
         {
             if (ModelState.IsValid)
             {
+                UserStore<ApplicationUser> userStore = new UserStore<ApplicationUser>(db);
+                UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(userStore);
+
+                // 二者相同，因为登录时，自带的模板中有个方法FindAsync将email当作username
+                applicationUser.UserName = applicationUser.Email;
+                applicationUser.PasswordHash = new PasswordHasher().HashPassword("123456");
+                applicationUser.SecurityStamp = Guid.NewGuid().ToString();
+                applicationUser.EmailConfirmed = true;
                 db.Users.Add(applicationUser);
                 db.SaveChanges();
+                userManager.AddToRole(applicationUser.Id, "employee");
                 return RedirectToAction("Index");
             }
 

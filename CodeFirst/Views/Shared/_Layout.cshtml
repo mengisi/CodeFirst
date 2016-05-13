@@ -24,14 +24,14 @@
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Nouvelles", "Index", "Annoucements")</li>
-                        if (this.User.IsInRole("Admin"))
+                        if (this.User.IsInRole("admin"))
                         {
                             <li>@Html.ActionLink("Ajouter Nouvelles", "Create", "Annoucements")</li>
                             <li>@Html.ActionLink("Gérer Employées", "Index", "ApplicationUsers")</li>
                             <li>@Html.ActionLink("Gérer Commandes", "news")</li>
                         }
 
-                        if (this.User.IsInRole("Employee"))
+                        if (this.User.IsInRole("employee"))
                         {
                             <li>@Html.ActionLink("Editer mon profiles", "news")</li>
                             <li>@Html.ActionLink("Faire Commande", "news")</li>
