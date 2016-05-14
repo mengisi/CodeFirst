@@ -19,9 +19,9 @@ namespace CodeFirst.Models.ViewModels
 
         public DateTime SubmitTime { get; set; }
 
-        public DateTime? ApproveTime { get; set; }
+        public DateTime? ApproveOrRefuseTime { get; set; }
 
-        public bool IsApproved { get; set; }
+        public bool? IsApproved { get; set; }
 
         public string ProductName { get; set; }
 

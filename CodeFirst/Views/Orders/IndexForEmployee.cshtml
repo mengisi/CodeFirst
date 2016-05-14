@@ -6,10 +6,13 @@
 }
 
 
-<h3>All the orders that I created</h3>
+<h3>Orders created by me</h3>
 <div class=" table-responsive">
-    <table class="table table-responsive">
+    <table class="table table-responsive table-hover">
         <tr>
+            <th>
+                Order id
+            </th>
             <th>
                 Product
             </th>
@@ -23,28 +26,36 @@
                 Total
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SubmitTime)
+                Submit Time
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ApproveTime)
+                Approve/Refuse Time
             </th>
             <th>
-                Approved
+                Status
             </th>
         </tr>
 
         @foreach (var item in Model)
         {
-            string trClass = "";
-            string result = "Not yet";
+            string trClass = "active";
+            string result = "Waiting for approve";
 
-            if (item.ApproveTime != null)
+            if (item.IsApproved == true)
             {
                 trClass = "success";
-                result = "Yes";
+                result = "Approved";
+            }
+            else if (item.IsApproved == false)
+            {
+                trClass = "danger";
+                result = "Refused";
             }
 
             <tr class="@trClass">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductName)
                 </td>
@@ -61,7 +72,7 @@
                     @Html.DisplayFor(modelItem => item.SubmitTime)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ApproveTime)
+                    @Html.DisplayFor(modelItem => item.ApproveOrRefuseTime)
                 </td>
                 <td>
                     @result

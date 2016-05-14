@@ -27,7 +27,25 @@ namespace CodeFirst.Controllers
                 return HttpNotFound();
             }
 
-            order.ApproveTime = DateTime.Now;
+            order.IsApproved = true;
+            order.ApproveOrRefuseTime = DateTime.Now;
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Orders");
+        }
+
+        [Authorize(Roles = "admin")]
+        public ActionResult Refuse(int id)
+        {
+            Order order = db.Orders.Find(id);
+
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+
+            order.IsApproved = false;
+            order.ApproveOrRefuseTime = DateTime.Now;
             db.SaveChanges();
 
             return RedirectToAction("Index", "Orders");
@@ -48,7 +66,7 @@ namespace CodeFirst.Controllers
                              LastName = user.LastName,
                              Email = user.Email,
                              SubmitTime = order.SubmitTime,
-                             ApproveTime = order.ApproveTime,
+                             ApproveOrRefuseTime = order.ApproveOrRefuseTime,
                              IsApproved = order.IsApproved,
                              ProductName = order.ProductName,
                              Quantity = order.Quantity,

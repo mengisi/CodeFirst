@@ -14,10 +14,10 @@ namespace CodeFirst.Models
         public DateTime SubmitTime { get; set; }
 
         [Display(Name = "Approved time")]
-        public DateTime? ApproveTime { get; set; }
+        public DateTime? ApproveOrRefuseTime { get; set; }
 
         [Display(Name = "Approved")]
-        public bool IsApproved { get; set; }
+        public bool? IsApproved { get; set; }
 
         [Required]
         [Display(Name = "Product name *")]

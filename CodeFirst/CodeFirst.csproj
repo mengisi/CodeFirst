@@ -180,6 +180,14 @@
     <Compile Include="Migrations\201605132304375_remove description in order.Designer.cs">
       <DependentUpon>201605132304375_remove description in order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605142116333_isApproved nullable in order.cs" />
+    <Compile Include="Migrations\201605142116333_isApproved nullable in order.Designer.cs">
+      <DependentUpon>201605142116333_isApproved nullable in order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605142156392_rename approveTime.cs" />
+    <Compile Include="Migrations\201605142156392_rename approveTime.Designer.cs">
+      <DependentUpon>201605142156392_rename approveTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Annoucement.cs" />
@@ -222,7 +230,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index888.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -280,6 +287,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605132304375_remove description in order.resx">
       <DependentUpon>201605132304375_remove description in order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605142116333_isApproved nullable in order.resx">
+      <DependentUpon>201605142116333_isApproved nullable in order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605142156392_rename approveTime.resx">
+      <DependentUpon>201605142156392_rename approveTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
