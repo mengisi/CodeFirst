@@ -36,15 +36,15 @@ namespace CodeFirst.Migrations
                 {
                     // In ASP.NET template, FindAsync() sets the USERNAME to the email 
                     // So here, UserName == Email
-                    UserName = "employee@Employee.com",
+                    UserName = "employee@employee.com",
                     FirstName = "Robert",
                     LastName = "Lablanc",
-                    Email = "employee1@employee.com",
+                    Email = "employee@employee.com",
                     EmailConfirmed = true,
                     PasswordHash = new PasswordHasher().HashPassword("123456"),
                     SecurityStamp = Guid.NewGuid().ToString()
                 };
-            context.Users.AddOrUpdate(user => user.Email, employee);  // 根据email来寻找user，这样做的话，email就不允许变化了
+            context.Users.AddOrUpdate(user => user.Email, employee); 
             context.SaveChanges();
             userManager.AddToRole(employee.Id, "employee");
             

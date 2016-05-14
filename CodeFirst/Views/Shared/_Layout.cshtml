@@ -24,18 +24,18 @@
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Nouvelles", "Index", "Annoucements")</li>
+                        <li>@Html.ActionLink("Company news", "Index", "Annoucements")</li>
                         if (this.User.IsInRole("admin"))
                         {
                             <li>@Html.ActionLink("Add news", "Create", "Annoucements")</li>
                             <li>@Html.ActionLink("Manage employees", "Index", "ApplicationUsers")</li>
-                            <li>@Html.ActionLink("Manage orders", "news")</li>
+                            <li>@Html.ActionLink("Manage orders", "Index", "Orders")</li>
                         }
 
                         if (this.User.IsInRole("employee"))
                         {
-                            <li>@Html.ActionLink("Mange profile", "Details", "ApplicationUsers", new { id = User.Identity.GetUserId() }, null)</li>
-                            <li>@Html.ActionLink("Manage orders", "Index", "Orders")</li>
+                            <li>@Html.ActionLink("My profile", "Details", "ApplicationUsers", new { id = User.Identity.GetUserId() }, null)</li>
+                            <li>@Html.ActionLink("My orders", "IndexForEmployee", "Orders")</li>
                         }
                     }
                 </ul>

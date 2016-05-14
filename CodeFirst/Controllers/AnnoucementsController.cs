@@ -15,12 +15,14 @@ namespace CodeFirst.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Annoucements
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Annoucements.ToList());
         }
 
         // GET: Annoucements/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

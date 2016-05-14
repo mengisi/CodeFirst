@@ -17,10 +17,27 @@ namespace CodeFirst.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [Authorize(Roles = "admin")]
+        public ActionResult Approve(int id)
+        {
+            Order order = db.Orders.Find(id);
+
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+
+            order.ApproveTime = DateTime.Now;
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Orders");
+        }
+
         // GET: Orders
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
-            IEnumerable<OrderWithUserViewModel> allOrders  = (from order in db.Orders
+            return View((from order in db.Orders
                          join user in db.Users
                          on order.ApplicationUser.Id equals user.Id
                          select new OrderWithUserViewModel()
@@ -37,13 +54,25 @@ namespace CodeFirst.Controllers
                              Quantity = order.Quantity,
                              Price = order.Price,
                              Total = order.Total,
-                         }).ToList();
+                         }).ToList());
+        }
 
-            return View(allOrders);
+        [Authorize(Roles = "employee")]
+        public ActionResult IndexForEmployee()
+        {
+            UserStore<ApplicationUser> userStore = new UserStore<ApplicationUser>(db);
+            UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(userStore);
+            string userId = User.Identity.GetUserId();
 
+            return View((from order in db.Orders
+                         join user in db.Users
+                         on order.ApplicationUser.Id equals user.Id
+                         where order.ApplicationUser.Id == userId
+                         select order).ToList());
         }
 
         // GET: Orders/Details/5
+        [Authorize(Roles = "employee")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -60,6 +89,7 @@ namespace CodeFirst.Controllers
         }
 
         // GET: Orders/Create
+        [Authorize(Roles = "employee")]
         public ActionResult Create()
         {
             return View();
@@ -69,6 +99,7 @@ namespace CodeFirst.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "employee")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Description,ProductName,Quantity,Price,Total")] Order order)
         {
@@ -79,15 +110,16 @@ namespace CodeFirst.Controllers
                 order.ApplicationUser = userManager.FindById(User.Identity.GetUserId());
 
                 order.SubmitTime = DateTime.Now;
-                 db.Orders.Add(order);
+                db.Orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexForEmployee");
             }
 
             return View(order);
         }
 
         // GET: Orders/Edit/5
+        [Authorize(Roles = "boss")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -107,6 +139,7 @@ namespace CodeFirst.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "boss")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,SubmitTime,ApproveTime,Description,IsApproved,ItemName,Quantity,Price,Total,ApplicationUserId")] Order order)
         {
@@ -120,6 +153,7 @@ namespace CodeFirst.Controllers
         }
 
         // GET: Orders/Delete/5
+        [Authorize(Roles = "boss")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -137,6 +171,7 @@ namespace CodeFirst.Controllers
 
         // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "boss")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

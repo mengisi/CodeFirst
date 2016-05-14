@@ -111,5 +111,5 @@ C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.pdb
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.a1.resources
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csproj.GenerateResource.Cache
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.a2.resources
-C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csprojResolveAssemblyReference.cache
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.removedescriptioninorder.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csprojResolveAssemblyReference.cache

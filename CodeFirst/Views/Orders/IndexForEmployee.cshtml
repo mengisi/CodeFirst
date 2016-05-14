@@ -1,22 +1,16 @@
-﻿@model IEnumerable<CodeFirst.Models.ViewModels.OrderWithUserViewModel>
+﻿@model IEnumerable<CodeFirst.Models.Order>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Orders of all the company</h3>
-
 <p></p>
-
+<p>
+    @Html.ActionLink("New Order", "Create", null, new { @class = "btn btn-primary" })
+</p>
 <table class="table">
     <tr>
-        <th>
-            Employee name
-        </th>
-        <th>
-            Employee email
-        </th>
         <th>
             Product
         </th>
@@ -35,19 +29,23 @@
         <th>
             @Html.DisplayNameFor(model => model.ApproveTime)
         </th>
-        <th></th>
+        <th>
+            Approved
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        string fullName = item.FirstName + " " + item.LastName;
-        <tr>
-            <td>
-                @fullName
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
+        string style = "";
+        string result = "Not yet";
+
+        if (item.ApproveTime != null)
+        {
+            style = "style=color:green";
+            result = "Yes";
+        }
+
+        <tr @style>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
@@ -67,12 +65,9 @@
                 @Html.DisplayFor(modelItem => item.ApproveTime)
             </td>
             <td>
-                @if (item.ApproveTime == null)
-                {
-                    @Html.ActionLink("Approve", "Approve", new { id = item.Id }, new { @class = "btn btn-default" })
-                }
-            </td>
-        </tr>
+                @result
+        </td>
+    </tr>
     }
 
 </table>

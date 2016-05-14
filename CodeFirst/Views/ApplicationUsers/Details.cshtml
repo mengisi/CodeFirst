@@ -6,9 +6,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<p></p>
 
 <div>
-    <h4>@Html.ActionLink("Edit", "Edit", "ApplicationUsers", new { id = User.Identity.GetUserId() }, null)</h4>
+    <h4>@Html.ActionLink("Edit", "Edit", "ApplicationUsers", new { id = User.Identity.GetUserId() }, new { @class = "btn btn-primary" })</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -52,7 +53,3 @@
         </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
