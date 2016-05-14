@@ -9,70 +9,78 @@
 
 <p></p>
 
-<table class="table">
-    <tr>
-        <th>
-            Employee name
-        </th>
-        <th>
-            Employee email
-        </th>
-        <th>
-            Product
-        </th>
-        <th>
-            Quantity
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Total
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubmitTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApproveTime)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        string fullName = item.FirstName + " " + item.LastName;
+<div class="table-responsive">
+    <table class="table">
         <tr>
-            <td>
-                @fullName
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubmitTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApproveTime)
-            </td>
-            <td>
-                @if (item.ApproveTime == null)
-                {
-                    @Html.ActionLink("Approve", "Approve", new { id = item.Id }, new { @class = "btn btn-success" })
-                }
-            </td>
+            <th>
+                Employee name
+            </th>
+            <th>
+                Employee email
+            </th>
+            <th>
+                Product
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Total
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubmitTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApproveTime)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            string fullName = item.FirstName + " " + item.LastName;
+            <tr>
+                <td>
+                    @fullName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubmitTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApproveTime)
+                </td>
+                <td>
+                    @if (item.ApproveTime == null)
+                    {
+                        @Html.ActionLink("Approve", "Approve", new { id = item.Id }, new { @class = "btn btn-success" })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $('#manageOrders').attr('class', 'active');
+    </script>
+}

@@ -5,69 +5,78 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<p></p>
+
+<h3>All the orders that I created</h3>
+<div class=" table-responsive">
+    <table class="table table-responsive">
+        <tr>
+            <th>
+                Product
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Total
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubmitTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApproveTime)
+            </th>
+            <th>
+                Approved
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            string trClass = "";
+            string result = "Not yet";
+
+            if (item.ApproveTime != null)
+            {
+                trClass = "success";
+                result = "Yes";
+            }
+
+            <tr class="@trClass">
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubmitTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApproveTime)
+                </td>
+                <td>
+                    @result
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
 <p>
     @Html.ActionLink("New Order", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            Product
-        </th>
-        <th>
-            Quantity
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Total
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubmitTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApproveTime)
-        </th>
-        <th>
-            Approved
-        </th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        string style = "";
-        string result = "Not yet";
-
-        if (item.ApproveTime != null)
-        {
-            style = "style=color:green";
-            result = "Yes";
-        }
-
-        <tr @style>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubmitTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApproveTime)
-            </td>
-            <td>
-                @result
-        </td>
-    </tr>
-    }
-
-</table>
+@section scripts {
+    <script type="text/javascript">
+        $('#myOrders').attr('class', 'active');
+    </script>
+}
