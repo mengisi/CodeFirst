@@ -8,17 +8,113 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
-    <script>
-        tinymce.init({
-            selector: '#mytextarea',
-            autoresize_min_height: 500,
-            autoresize_max_height: 500,
-            plugins: "autoresize",
-            autoresize_on_init: false
-        });
-    </script>
 
+    <style>
+        .navbar-default {
+            background-color: #4773f7;
+            border-color: #20b551;
+        }
+
+            .navbar-default .navbar-brand {
+                color: #ffffff;
+            }
+
+                .navbar-default .navbar-brand:hover,
+                .navbar-default .navbar-brand:focus {
+                    color: #ffffff;
+                }
+
+            .navbar-default .navbar-text {
+                color: #ffffff;
+            }
+
+            .navbar-default .navbar-nav > li > a {
+                color: #ffffff;
+            }
+
+                .navbar-default .navbar-nav > li > a:hover,
+                .navbar-default .navbar-nav > li > a:focus {
+                    color: #ffffff;
+                }
+
+            .navbar-default .navbar-nav > li > .dropdown-menu {
+                background-color: #4773f7;
+            }
+
+                .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+                    color: #ffffff;
+                }
+
+                    .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+                    .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+                        color: #ffffff;
+                        background-color: #20b551;
+                    }
+
+                .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+                    background-color: #20b551;
+                }
+
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                color: #ffffff;
+                background-color: #20b551;
+            }
+
+            .navbar-default .navbar-nav > .active > a,
+            .navbar-default .navbar-nav > .active > a:hover,
+            .navbar-default .navbar-nav > .active > a:focus {
+                color: #ffffff;
+                background-color: #20b551;
+            }
+
+            .navbar-default .navbar-nav > .open > a,
+            .navbar-default .navbar-nav > .open > a:hover,
+            .navbar-default .navbar-nav > .open > a:focus {
+                color: #ffffff;
+                background-color: #20b551;
+            }
+
+            .navbar-default .navbar-toggle {
+                border-color: #20b551;
+            }
+
+                .navbar-default .navbar-toggle:hover,
+                .navbar-default .navbar-toggle:focus {
+                    background-color: #20b551;
+                }
+
+                .navbar-default .navbar-toggle .icon-bar {
+                    background-color: #ffffff;
+                }
+
+            .navbar-default .navbar-collapse,
+            .navbar-default .navbar-form {
+                border-color: #ffffff;
+            }
+
+            .navbar-default .navbar-link {
+                color: #ffffff;
+            }
+
+                .navbar-default .navbar-link:hover {
+                    color: #ffffff;
+                }
+
+
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                color: #ffffff;
+            }
+
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                color: #ffffff;
+                background-color: #20b551;
+            }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -29,24 +125,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
-                        <li class="active">@Html.ActionLink("Company news", "Index", "Annoucements")</li>
+                        <li id="companyNews">@Html.ActionLink("Company news", "Index", "Annoucements")</li>
+
                         if (this.User.IsInRole("admin"))
                         {
-                            <li>@Html.ActionLink("Add news", "Create", "Annoucements")</li>
-                            <li>@Html.ActionLink("Manage employees", "Index", "ApplicationUsers")</li>
-                            <li>@Html.ActionLink("Manage orders", "Index", "Orders")</li>
+                            <li id="manageEmployees">@Html.ActionLink("Manage employees", "Index", "ApplicationUsers")</li>
+                            <li id="manageOrders">@Html.ActionLink("Manage orders", "Index", "Orders")</li>
                         }
 
                         if (this.User.IsInRole("employee"))
                         {
-                            <li>@Html.ActionLink("My profile", "Details", "ApplicationUsers", new { id = User.Identity.GetUserId() }, null)</li>
-                            <li>@Html.ActionLink("My orders", "IndexForEmployee", "Orders")</li>
+                            <li id="myProfile">@Html.ActionLink("My profile", "Details", "ApplicationUsers", new { id = User.Identity.GetUserId() }, null)</li>
+                            <li id="myOrders">@Html.ActionLink("My orders", "IndexForEmployee", "Orders")</li>
                         }
                     }
                 </ul>
@@ -65,5 +161,16 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            autoresize_min_height: 300,
+            autoresize_max_height: 500,
+            plugins: "autoresize",
+            autoresize_on_init: false
+        });
+    </script>
 </body>
 </html>

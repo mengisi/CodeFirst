@@ -5,11 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<p></p>
+<h3>Employees of company</h3>
 
-<p>
-    @Html.ActionLink("Create New Employee", "Create", null, new { @class = "btn btn-primary" })
-</p>
 <table class="table">
     <tr>
         <th>
@@ -61,3 +58,6 @@
     }
 
 </table>
+<p>
+    @Html.ActionLink("Create New Employee", "Create", null, new { @class = "btn btn-primary" })
+</p>

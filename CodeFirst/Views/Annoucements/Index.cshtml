@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Nouvelles</h2>
+<h3>Company news</h3>
 
 
 <table class="table">
@@ -18,9 +18,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Updatetime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Visits)
         </th>
         <th></th>
     </tr>
@@ -38,9 +35,6 @@
                 @Html.DisplayFor(modelItem => item.Updatetime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Visits)
-            </td>
-            <td>
                 @if (User.IsInRole("admin"))
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id })
@@ -52,3 +46,14 @@
     }
 
 </table>
+
+@if (User.IsInRole("admin"))
+{
+    @Html.ActionLink("Create News", "Create", "Annoucements", null, new { @class = "btn btn-primary" })
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $('#companyNews').attr('class', 'active');
+    </script>
+}

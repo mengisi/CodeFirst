@@ -14,33 +14,31 @@
             @Html.Raw(@Model.Text)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreateTime)
-        </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.CreateTime)
+            Created: @Html.DisplayFor(model => model.CreateTime)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Updatetime)
-        </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Updatetime)
+            Updated:  @Html.DisplayFor(model => model.Updatetime)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Visits)
-        </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Visits)
-        </dd>
+            @if (User.IsInRole("admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", "Annoucements", new { id = Model.Id }, new { @class = "btn btn-primary", @style = "margin-top: 20px" })
+            }
 
+        </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+
+
+
+
+@section scripts {
+    <script type="text/javascript">
+        $('#companyNews').attr('class', 'active');
+    </script>
+}
