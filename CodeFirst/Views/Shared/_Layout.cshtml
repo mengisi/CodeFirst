@@ -11,20 +11,31 @@
     <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
     <script>
         tinymce.init({
-            selector: '#mytextarea'
+            selector: '#mytextarea',
+            autoresize_min_height: 500,
+            autoresize_max_height: 500,
+            plugins: "autoresize",
+            autoresize_on_init: false
         });
     </script>
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+            </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Company news", "Index", "Annoucements")</li>
+                        <li class="active">@Html.ActionLink("Company news", "Index", "Annoucements")</li>
                         if (this.User.IsInRole("admin"))
                         {
                             <li>@Html.ActionLink("Add news", "Create", "Annoucements")</li>
@@ -42,7 +53,7 @@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
