@@ -34,7 +34,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Updatetime)
                 </td>
-                <td>
+                <td style="white-space: nowrap;">
                     @if (User.IsInRole("admin"))
                     {
                         @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary", @style = "margin-right:10px" })

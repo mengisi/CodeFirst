@@ -93,7 +93,7 @@
                 <td>
                     @result
                 </td>
-                <td>
+                <td style="white-space: nowrap;">
                     @if (item.IsApproved == null)
                     {
                         @Html.ActionLink("Approve", "Approve", new { id = item.Id }, new { @class = "btn btn-success", @style = "margin-right: 20px" })
