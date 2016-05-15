@@ -46,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.PhoneNumber)
                 </td>
                 <td>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    <a href="ApplicationUsers/DeleteConfirmed/@item.Id" class="btn btn-danger btnRemove">Delete</a>
                 </td>
             </tr>
         }
@@ -57,8 +57,46 @@
     @Html.ActionLink("Create New Employee", "Create", null, new { @class = "btn btn-primary" })
 </p>
 
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Confirm</h4>
+            </div>
+            <div class="modal-body">
+                <span>Are you sure you want to delete </span>
+                <b id="lastConfirme"></b><span>?</span>
+                <p><span style="font-weight:bold; line-height:500%">Warning: </span>The orders which are created by this employee will also be deleted !</p>
+            </div>
+            <div class="modal-footer">
+                <a id="btnConfirm" href="#" type="button" class="btn btn-primary" style="margin-right:10px">Yes</a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
 @section scripts {
     <script type="text/javascript">
         $('#manageEmployees').attr('class', 'active');
+
+
+        $('.btnRemove').click(function (e) {
+            e.preventDefault();
+
+            var firstName = $(this).parent().parent().children().eq(0).text();
+            var lastName = $(this).parent().parent().children().eq(1).text();
+            var email = $(this).parent().parent().children().eq(2).text();
+
+            $('#lastConfirme').text(firstName + ' ' + lastName + ' (' + email + ') ');
+            $('#btnConfirm').prop("href", $(this).attr('href'));
+            $('#myModal').modal('show');
+        });
     </script>
 }

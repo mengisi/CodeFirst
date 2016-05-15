@@ -27,6 +27,18 @@
 
     </div>
 </div>
+
+@if (User.IsInRole("employee"))
+{
+    <div>
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+    </div>
+}
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $('#myProfile').attr('class', 'active');
+    </script>
 }

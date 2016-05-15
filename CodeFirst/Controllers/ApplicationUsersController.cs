@@ -141,12 +141,24 @@ namespace CodeFirst.Controllers
         }
 
         // POST: ApplicationUsers/Delete/5
-        [HttpPost, ActionName("Delete")]
+        //[HttpPost, ActionName("Delete")]
         [Authorize(Roles = "admin")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             ApplicationUser applicationUser = db.Users.Find(id);
+            if (applicationUser == null)
+            {
+                return HttpNotFound();
+            }
+
+            // First of all, delete the orders whick are created by this user
+            db.Orders.RemoveRange(db.Orders.Where(o => o.ApplicationUser.Id == applicationUser.Id));
+
             db.Users.Remove(applicationUser);
             db.SaveChanges();
             return RedirectToAction("Index");

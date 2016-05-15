@@ -114,12 +114,20 @@ namespace CodeFirst.Controllers
         }
 
         // POST: Annoucements/Delete/5
-        [HttpPost, ActionName("Delete")]
+        //[HttpPost, ActionName("Delete")]
         [Authorize(Roles = "admin")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        //[ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Annoucement annoucement = db.Annoucements.Find(id);
+            if (annoucement == null)
+            {
+                return HttpNotFound();
+            }
             db.Annoucements.Remove(annoucement);
             db.SaveChanges();
             return RedirectToAction("Index");
