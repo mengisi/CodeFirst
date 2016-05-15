@@ -57,6 +57,14 @@ namespace CodeFirst.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "FirstName,LastName,Adress,Email,PhoneNumber")] CreateEmployeeViewModel newEmployee)
         {
+
+            var myUser = db.Users.FirstOrDefault(u => u.Email == newEmployee.Email);
+            if (myUser != null)
+            {
+                ModelState.AddModelError("Email", "This Email exist already !");
+       
+            }
+
             ApplicationUser applicationUser = new ApplicationUser();
 
             if (ModelState.IsValid)
@@ -79,7 +87,7 @@ namespace CodeFirst.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(applicationUser);
+            return View(newEmployee);
         }
 
         // GET: ApplicationUsers/Edit/5
@@ -119,7 +127,7 @@ namespace CodeFirst.Controllers
 
                 db.Entry(userToUpdate).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Details", "ApplicationUsers", new {id = applicationUser.Id});
+                return RedirectToAction("Details", "ApplicationUsers", new { id = applicationUser.Id });
             }
             return View(applicationUser);
         }

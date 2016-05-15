@@ -6,6 +6,7 @@
 
 <h3>Change password</h3>
 
+<p class="text-success" style="font-weight:bold">@ViewBag.StatusMessage</p>
 
 <div class="row">
     <div class="col-md-12">
@@ -31,7 +32,7 @@
 @if (User.IsInRole("employee"))
 {
     <div>
-        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Back", "Details", "ApplicationUsers", new { id = User.Identity.GetUserId() }, new { @class = "btn btn-primary" })
     </div>
 }
 

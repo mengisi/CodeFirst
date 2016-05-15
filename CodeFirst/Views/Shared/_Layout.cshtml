@@ -12,6 +12,10 @@
     @Scripts.Render("~/bundles/modernizr")
         
     <style>
+        body{
+            min-height:500px;
+        }
+
         .table tbody > tr > td {
             vertical-align: middle;
         }
@@ -158,7 +162,9 @@
         </div>
     </nav>
     <div class="container body-content">
-        @RenderBody()
+        <div id="mainPage" style="min-height:600px">
+            @RenderBody()
+        </div>
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Created by Meng XUE</p>
