@@ -85,10 +85,13 @@
                     @Html.DisplayFor(modelItem => item.Total)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SubmitTime)
+                    @item.SubmitTime.ToString("yyyy-MM-dd HH:mm")
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ApproveOrRefuseTime)
+                    @if (@item.ApproveOrRefuseTime != null)
+                    {
+                        @item.ApproveOrRefuseTime.Value.ToString("yyyy-MM-dd HH:mm")
+                    }
                 </td>
                 <td>
                     @result

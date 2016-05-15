@@ -114,3 +114,4 @@ C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.removedescriptioninorder.resources
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.isApprovednullableinorder.resources
 C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.Migrations.renameapproveTime.resources
+C:\Users\hanyu_000\Documents\CodeFirst\CodeFirst\obj\Debug\CodeFirst.csprojResolveAssemblyReference.cache

@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+
+    @Styles.Render("~/Content/jasny")
+
     @Scripts.Render("~/bundles/modernizr")
 
 
     <style>
+        .table tbody > tr > td {
+            vertical-align: middle;
+        }
+
+
         .navbar-default {
             background-color: #4773f7;
             border-color: #20b551;
@@ -159,7 +167,11 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jasny")
+
     @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
 
     <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>

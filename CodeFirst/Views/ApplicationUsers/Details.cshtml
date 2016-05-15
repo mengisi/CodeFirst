@@ -53,10 +53,11 @@
         </dd>
 
         <dt>
-            @Html.ActionLink("Edit", "Edit", "ApplicationUsers", new { id = User.Identity.GetUserId() }, new { @class = "btn btn-primary", @style = "margin-top : 20px" })
+            @Html.ActionLink("Edit profile", "Edit", "ApplicationUsers", new { id = User.Identity.GetUserId() }, new { @class = "btn btn-primary", @style = "margin-top : 20px" })
         </dt>
 
         <dd>
+            @Html.ActionLink("Change passwword", "Manage", "Account", null, new { @class = "btn btn-primary", @style = "margin-top : 20px" })
         </dd>
     </dl>
 </div>

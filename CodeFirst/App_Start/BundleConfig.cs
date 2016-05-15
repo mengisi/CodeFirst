@@ -27,6 +27,12 @@ namespace CodeFirst
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jasny").Include(
+                      "~/Scripts/jasny-bootstrap.min.js"));
+
+            bundles.Add(new StyleBundle("~/Content/jasny").Include(
+                      "~/Content/jasny-bootstrap.min.css"));
+
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
             BundleTable.EnableOptimizations = true;
