@@ -52,7 +52,7 @@ namespace CodeFirst.Migrations
             {
                 UserName = "admin@admin.com",
                 FirstName = "Philippe",
-                LastName = "Petellier",
+                LastName = "Couillard",
                 Email = "admin@admin.com",
                 EmailConfirmed = true,
                 PasswordHash = new PasswordHasher().HashPassword("123456"),

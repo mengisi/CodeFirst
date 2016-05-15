@@ -29,11 +29,11 @@ namespace CodeFirst.Models
 
         [Required]
         [Display(Name = "Price *")]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         [Required]
         [Display(Name = "Total *")]
-        public double Total { get; set; }
+        public decimal Total { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
     }
