@@ -1,0 +1,96 @@
+﻿@model IEnumerable<CodeFirst.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>Orders created by me</h3>
+<div class=" table-responsive">
+    <table class="table table-responsive table-hover">
+        <tr>
+            <th>
+                Order id
+            </th>
+            <th>
+                Product
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Total
+            </th>
+            <th>
+                Submit Time
+            </th>
+            <th>
+                Approve/Refuse Time
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            string trClass = "active";
+            string result = "Waiting for approve";
+
+            if (item.IsApproved == true)
+            {
+                trClass = "success";
+                result = "Approved";
+            }
+            else if (item.IsApproved == false)
+            {
+                trClass = "danger";
+                result = "Refused";
+            }
+
+            <tr class="@trClass">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @item.SubmitTime.ToString("yyyy-MM-dd HH:mm")
+                </td>
+                <td>
+                    @if (@item.ApproveOrRefuseTime != null)
+                    {
+                        @item.ApproveOrRefuseTime.Value.ToString("yyyy-MM-dd HH:mm")
+                    }
+                </td>
+                <td>
+                    @result
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("New Order", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+@section scripts {
+    <script type="text/javascript">
+        $('#myOrders').attr('class', 'active');
+    </script>
+}

@@ -1,0 +1,42 @@
+﻿@model CodeFirst.Models.Annoucement
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Title</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.Raw(@Model.Text)
+        </dd>
+
+        <dd>
+            Created: @Html.DisplayFor(model => model.CreateTime)
+        </dd>
+
+        <dd>
+            Updated:  @Html.DisplayFor(model => model.Updatetime)
+        </dd>
+
+        <dd>
+            @if (User.IsInRole("admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", "Annoucements", new { id = Model.Id }, new { @class = "btn btn-primary", @style = "margin-top: 20px" })
+            }
+
+        </dd>
+    </dl>
+</div>
+
+@Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+
+
+@section scripts {
+    <script type="text/javascript">
+        $('#companyNews').attr('class', 'active');
+    </script>
+}

@@ -1,0 +1,116 @@
+﻿@model IEnumerable<CodeFirst.Models.ViewModels.OrderWithUserViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Orders of all the company</h3>
+
+<p></p>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <tr>
+            <th>
+                Order id
+            </th>
+            <th>
+                Applicant
+            </th>
+            <th>
+                Applicant Email
+            </th>
+            <th>
+                Product
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Total
+            </th>
+            <th>
+                Submit Time
+            </th>
+            <th>
+                Approve/Refuse Time
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            string trClass = "active";
+            string result = "Waiting for approve";
+
+            if (item.IsApproved == true)
+            {
+                trClass = "success";
+                result = "Approved";
+            }
+            else if (item.IsApproved == false)
+            {
+                trClass = "danger";
+                result = "Refused";
+            }
+
+            string fullName = item.FirstName + " " + item.LastName;
+            <tr class="@trClass">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @fullName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @item.SubmitTime.ToString("yyyy-MM-dd HH:mm")
+                </td>
+                <td>
+                    @if (@item.ApproveOrRefuseTime != null)
+                    {
+                        @item.ApproveOrRefuseTime.Value.ToString("yyyy-MM-dd HH:mm")
+                    }
+                </td>
+                <td>
+                    @result
+                </td>
+                <td style="white-space: nowrap;">
+                    @if (item.IsApproved == null)
+                    {
+                        @Html.ActionLink("Approve", "Approve", new { id = item.Id }, new { @class = "btn btn-success", @style = "margin-right: 20px" })
+                        @Html.ActionLink("Refuse", "Refuse", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $('#manageOrders').attr('class', 'active');
+    </script>
+}

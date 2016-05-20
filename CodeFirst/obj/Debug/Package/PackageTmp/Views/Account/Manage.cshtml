@@ -1,0 +1,45 @@
+﻿@using CodeFirst.Models;
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Manage Account";
+}
+
+<h3>Change password</h3>
+
+<p class="text-success" style="font-weight:bold">@ViewBag.StatusMessage</p>
+
+<div class="row">
+    <div class="col-md-12">
+        @if (ViewBag.HasLocalPassword)
+        {
+            @Html.Partial("_ChangePasswordPartial")
+        }
+        else
+        {
+            @Html.Partial("_SetPasswordPartial")
+        }
+
+        <!--
+        <section id="externalLogins">
+            @Html.Action("RemoveAccountList")
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+        -->
+
+    </div>
+</div>
+
+@if (User.IsInRole("employee"))
+{
+    <div>
+        @Html.ActionLink("Back", "Details", "ApplicationUsers", new { id = User.Identity.GetUserId() }, new { @class = "btn btn-primary" })
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $('#myProfile').attr('class', 'active');
+    </script>
+}

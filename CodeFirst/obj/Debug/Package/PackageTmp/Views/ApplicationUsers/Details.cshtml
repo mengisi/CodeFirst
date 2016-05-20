@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNet.Identity
+@model CodeFirst.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p></p>
+
+<div class="well">
+
+    <hr />
+    <dl class="dl-horizontal" style="font-size: medium;">
+        <dt style="height: 30px;">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt style="height: 30px;">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt style="height: 30px;">
+            @Html.DisplayNameFor(model => model.Adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+
+        <dt style="height: 30px;">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt style="height: 30px;">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.ActionLink("Edit profile", "Edit", "ApplicationUsers", new { id = User.Identity.GetUserId() }, new { @class = "btn btn-primary", @style = "margin-top : 20px" })
+        </dt>
+
+        <dd>
+            @Html.ActionLink("Change passwword", "Manage", "Account", null, new { @class = "btn btn-primary", @style = "margin-top : 20px" })
+        </dd>
+    </dl>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $('#myProfile').attr('class', 'active');
+    </script>
+}

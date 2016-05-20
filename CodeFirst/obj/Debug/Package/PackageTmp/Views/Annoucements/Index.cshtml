@@ -1,0 +1,94 @@
+﻿@model IEnumerable<CodeFirst.Models.Annoucement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Company news</h3>
+
+<div class="table-responsive">
+    <table class="table table-hover table-responsive" data-provides="rowlink">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    Creat Time
+                </th>
+                <th>
+                    Update Time
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody data-link="row" class="rowlink">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="color:blue">
+                        @Html.ActionLink(@item.Title, "Details", new { id = item.Id })
+                    </td>
+                    <td>
+                        @item.CreateTime.ToString("yyyy-MM-dd HH:mm")
+                    </td>
+                    <td>
+                        @if (item.Updatetime != null)
+                        {
+                            @item.Updatetime.Value.ToString("yyyy-MM-dd HH:mm")}
+                    </td>
+                    <td style="white-space: nowrap; color: white" class="rowlink-skip">
+                        @if (User.IsInRole("admin"))
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary", @style = "margin-right:10px" })
+
+                            <a href="Annoucements/DeleteConfirmed/@item.Id" class="btn btn-danger btnRemove">Delete</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (User.IsInRole("admin"))
+{
+    @Html.ActionLink("Create News", "Create", "Annoucements", null, new { @class = "btn btn-primary" })
+}
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Confirm</h4>
+            </div>
+            <div class="modal-body">
+                <span>Are you sure you want to delete </span>
+                <b id="lastConfirme"></b><span>?</span>
+            </div>
+            <div class="modal-footer">
+                <a id="btnConfirm" href="#" type="button" class="btn btn-primary" style="margin-right:10px">Yes</a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $('#companyNews').attr('class', 'active');
+
+        $('.btnRemove').click(function (e) {
+            e.preventDefault();
+            $('#lastConfirme').text($(this).parent().parent().find('a').first().text() + ' ');
+            $('#btnConfirm').prop("href", $(this).attr('href'));
+            $('#myModal').modal('show');
+        });
+    </script>
+}
